@@ -1,56 +1,5 @@
 {
   "version": 2,
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 30
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/info",
-      "dest": "/api/index"
-    },
-    {
-      "src": "/api/v1/chat/(orzion-pro|orzion-turbo|orzion-mini)",
-      "dest": "/api/v1/chat/[model]?model=$1"
-    },
-    {
-      "src": "/api/keys",
-      "dest": "/api/keys/index"
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html"
-    },
-    {
-      "src": "/(.*\\.(css|js|html|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|otf))",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
-    }
-  ],
-  "env": {
-    "SUPABASE_URL": "@supabase_url",
-    "SUPABASE_ANON_KEY": "@supabase_anon_key",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
-    "ORZION_PRO_API_KEY_1": "@orzion_pro_api_key_1",
-    "ORZION_PRO_API_KEY_2": "@orzion_pro_api_key_2",
-    "ORZION_PRO_API_KEY_3": "@orzion_pro_api_key_3",
-    "ORZION_TURBO_API_KEY_1": "@orzion_turbo_api_key_1",
-    "ORZION_TURBO_API_KEY_2": "@orzion_turbo_api_key_2",
-    "ORZION_TURBO_API_KEY_3": "@orzion_turbo_api_key_3",
-    "ORZION_MINI_API_KEY_1": "@orzion_mini_api_key_1",
-    "ORZION_MINI_API_KEY_2": "@orzion_mini_api_key_2",
-    "ORZION_MINI_API_KEY_3": "@orzion_mini_api_key_3",
-    "HTTP_REFERER": "@http_referer",
-    "X_TITLE": "@x_title"
-  }
-}
-{
-  "version": 2,
   "builds": [
     {
       "src": "api/**/*.js",
@@ -63,8 +12,8 @@
       "dest": "/api/index.js"
     },
     {
-      "src": "/api/v1/chat/(.*)",
-      "dest": "/api/v1/chat/$1.js"
+      "src": "/api/v1/chat/(orzion-pro|orzion-turbo|orzion-mini)",
+      "dest": "/api/v1/chat/[model].js"
     },
     {
       "src": "/api/keys",
@@ -77,6 +26,7 @@
   ],
   "env": {
     "SUPABASE_URL": "@supabase-url",
+    "SUPABASE_ANON_KEY": "@supabase-anon-key",
     "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role-key",
     "ORZION_PRO_API_KEY_1": "@orzion-pro-api-key-1",
     "ORZION_PRO_API_KEY_2": "@orzion-pro-api-key-2",
