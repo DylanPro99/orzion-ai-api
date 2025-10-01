@@ -3,7 +3,7 @@ const Logger = require('../../lib/logger');
 const { ErrorHandler } = require('../../lib/errorHandler');
 const { setCorsHeaders } = require('../../lib/middleware');
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
     const requestId = Logger.generateRequestId();
     const startTime = Date.now();
 
@@ -131,7 +131,7 @@ module.exports = async (req, res) => {
             }
         });
     }
-};
+}
 
 async function handleGetApiKeys(req, res, userId, requestId) {
     try {

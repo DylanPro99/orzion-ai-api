@@ -1,7 +1,7 @@
-const Logger = require('../lib/logger');
-const { setCorsHeaders } = require('../lib/middleware');
+const Logger = require('../../lib/logger');
+const { setCorsHeaders } = require('../../lib/middleware');
 
-module.exports = (req, res) => {
+export default function handler(req, res) {
     const requestId = Logger.generateRequestId();
 
     try {
@@ -87,7 +87,7 @@ module.exports = (req, res) => {
                     process.env.ORZION_MINI_API_KEY_3
                 ].filter(k => k).length
             },
-            environment: 'Vercel Serverless',
+            environment: 'Next.js on Vercel',
             request_id: requestId
         });
     } catch (error) {
@@ -105,4 +105,4 @@ module.exports = (req, res) => {
             }
         });
     }
-};
+}

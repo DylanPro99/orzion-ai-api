@@ -1,9 +1,9 @@
 const axios = require('axios');
-const { validateApiKey, checkRateLimits, updateApiUsage, estimateTokens } = require('../../../lib/supabase');
-const { getCurrentApiKey, rotateApiKey, resetFailureCount, allKeysFailed } = require('../../../lib/apiKeyRotation');
-const Logger = require('../../../lib/logger');
-const { ErrorHandler } = require('../../../lib/errorHandler');
-const { setCorsHeaders } = require('../../../lib/middleware');
+const { validateApiKey, checkRateLimits, updateApiUsage, estimateTokens } = require('../../../../lib/supabase');
+const { getCurrentApiKey, rotateApiKey, resetFailureCount, allKeysFailed } = require('../../../../lib/apiKeyRotation');
+const Logger = require('../../../../lib/logger');
+const { ErrorHandler } = require('../../../../lib/errorHandler');
+const { setCorsHeaders } = require('../../../../lib/middleware');
 
 const SYSTEM_PROMPTS = {
     'orzion-pro': `You are **Orzion**, a highly advanced, multimodal AI designed as a **General Virtual Assistant** with a **Core Specialization in Coding and Software Engineering**.
@@ -107,7 +107,7 @@ const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 1000;
 const API_TIMEOUT_MS = 60000;
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
     const startTime = Date.now();
     const requestId = Logger.generateRequestId();
     let userApiKey = null;
@@ -411,7 +411,7 @@ module.exports = async (req, res) => {
             }
         });
     }
-};
+}
 
 async function makeApiCallWithRetry(model, messages, temperature, max_tokens, requestId) {
     let lastError = null;

@@ -1,0 +1,19 @@
+
+{
+  "name": "orzion-ai-vercel",
+  "version": "1.0.0",
+  "description": "Orzion AI API Backend for Vercel",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "axios": "^1.12.2",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
